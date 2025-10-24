@@ -29,7 +29,7 @@ RSpec.describe OrderAddress, type: :model do
     it 'post_codeが「3桁-4桁」以外の形式だと保存できない' do
       @order_address.post_code = '1234567'
       @order_address.valid?
-      expect(@order_address.errors.full_messages).to include("Post code is invalid. Enter it as follows (e.g. 123-4567)")
+      expect(@order_address.errors.full_messages).to include('Post code is invalid. Enter it as follows (e.g. 123-4567)')
     end
 
     it 'prefecture_idが1だと保存できない' do
@@ -59,19 +59,19 @@ RSpec.describe OrderAddress, type: :model do
     it 'phone_numberが9桁以下だと保存できない' do
       @order_address.phone_number = '090123456'
       @order_address.valid?
-      expect(@order_address.errors.full_messages).to include("Phone number is too short")
+      expect(@order_address.errors.full_messages).to include('Phone number is too short')
     end
 
     it 'phone_numberが12桁以上だと保存できない' do
       @order_address.phone_number = '090123456789'
       @order_address.valid?
-      expect(@order_address.errors.full_messages).to include("Phone number is too short")
+      expect(@order_address.errors.full_messages).to include('Phone number is too short')
     end
 
     it 'phone_numberにハイフンがあると保存できない' do
       @order_address.phone_number = '090-1234-5678'
       @order_address.valid?
-      expect(@order_address.errors.full_messages).to include("Phone number is invalid. Input only number")
+      expect(@order_address.errors.full_messages).to include('Phone number is invalid. Input only number')
     end
 
     it 'user_idが紐付いていないと保存できない' do

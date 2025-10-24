@@ -6,11 +6,11 @@ class OrderAddress
     validates :user_id, :item_id, :token, :city, :street_address
     validates :post_code, format: {
       with: /\A\d{3}-\d{4}\z/,
-      message: "is invalid. Enter it as follows (e.g. 123-4567)"
+      message: 'is invalid. Enter it as follows (e.g. 123-4567)'
     }
     validates :phone_number, format: {
       with: /\A\d{10,11}\z/,
-      message: "is invalid. Input only number"
+      message: 'is invalid. Input only number'
     }
   end
 
@@ -22,7 +22,7 @@ class OrderAddress
   validates :phone_number, length: {
     minimum: 10,
     maximum: 11,
-    message: "is too short"
+    message: 'is too short'
   }
 
   def save
